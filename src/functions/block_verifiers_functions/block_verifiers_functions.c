@@ -2075,12 +2075,18 @@ int block_verifiers_send_data_socket(const char* MESSAGE)
       str1 = string_replace(data3,"http://","");
       memset(data3,0,strlen(data3));
       memcpy(data3,str1,strnlen(str1,sizeof(data3)));
+      free(str1);
+
       str1 = string_replace(data3,"https://","");
       memset(data3,0,strlen(data3));
       memcpy(data3,str1,strnlen(str1,sizeof(data3)));
+      free(str1);
+
       str1 = string_replace(data3,"www.","");
       memset(data3,0,strlen(data3));
       memcpy(data3,str1,strnlen(str1,sizeof(data3)));
+      free(str1);
+      
       if (getaddrinfo(data3, data2, &serv_addr, &settings) != 0)
       { 
         freeaddrinfo(settings);

@@ -502,6 +502,7 @@ int read_document_all_fields_from_collection(const char* DATABASE, const char* C
     str1 = string_replace(data," }, ",", ");
     memset(data,0,strlen(data));
     memcpy(data,str1,strnlen(str1,sizeof(data)));   
+    free(str1);
 
     count = 1;
   }
@@ -654,7 +655,8 @@ int read_multiple_documents_all_fields_from_collection(const char* DATABASE, con
       bson_free(message); 
       str1 = string_replace(data," }, ",", ");
       memset(data,0,strlen(data));
-      memcpy(data,str1,strnlen(str1,sizeof(data)));      
+      memcpy(data,str1,strnlen(str1,sizeof(data)));  
+      free(str1);    
 
       // parse the json data    
       if (database_multiple_documents_parse_json_data(data,result,counter) == 0)

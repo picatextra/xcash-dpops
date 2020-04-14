@@ -107,32 +107,39 @@ int parse_json_data(const char* DATA, const char* FIELD_NAME, char *result, cons
       str1 = string_replace(message,"\"","");
       memset(message,0,strlen(message));
       memcpy(message,str1,strnlen(str1,MAXIMUM_AMOUNT));
+      free(str1);
 
       str1 = string_replace(message,",","");
       memset(message,0,strlen(message));
       memcpy(message,str1,strnlen(str1,MAXIMUM_AMOUNT));
+      free(str1);
 
       str1 = string_replace(message,"[","");
       memset(message,0,strlen(message));
       memcpy(message,str1,strnlen(str1,MAXIMUM_AMOUNT));
+      free(str1);
 
       str1 = string_replace(message,"]","");
       memset(message,0,strlen(message));
       memcpy(message,str1,strnlen(str1,MAXIMUM_AMOUNT));
+      free(str1);
 
       str1 = string_replace(message,"{","");
       memset(message,0,strlen(message));
       memcpy(message,str1,strnlen(str1,MAXIMUM_AMOUNT));
-
+      free(str1);
+      
       str1 = string_replace(message,"}","");
       memset(message,0,strlen(message));
       memcpy(message,str1,strnlen(str1,MAXIMUM_AMOUNT));
+      free(str1);
     }
     else
     {
       str1 = string_replace(message,"\"{\"","{\"");
       memset(message,0,strlen(message));
       memcpy(message,str1,strnlen(str1,MAXIMUM_AMOUNT));
+      free(str1);
     }
     memcpy(result,message,strnlen(message,RESULT_TOTAL_LENGTH));
   }
